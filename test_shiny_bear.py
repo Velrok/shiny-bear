@@ -13,5 +13,16 @@ def test_generate_drive_path():
 
 
 def test_movie_names_list():
-    eq_(movie_names_list("/Volumes/media/yoda/movies/"),
-        ["Eagle Eye (2008)"])
+    eq_(movie_names_list("./testumgebung/movies/"),
+        ["Movie 1 (2009)", "Movie 2 (2011)"])
+
+
+def test_movies_html():
+    eq_(movies_html(["Movie"]),
+        ["<li>Movie</li>"])
+
+
+def test_find_video_file():
+    eq_(find_video_file("./testumgebung/movies/Movie 1 (2009)/"),
+        "M1.mkv")
+    

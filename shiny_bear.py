@@ -22,13 +22,30 @@ def movie_names_list(movies_path):
     """
     safe movienames (if folder) from one drive to list
     """
-    movienames = []
-    movienames_temp = list(os.listdir(movies_path))
+    movie_names = []
+    movie_names_temp = list(os.listdir(movies_path))
 
-    for movie in movienames_temp:
+    for movie in movie_names_temp:
         if os.path.isdir(movies_path + movie):
-            movienames.append(movie)
-    return movienames
+            movie_names.append(movie)
+    return movie_names
+
+
+def movies_html(movie_names_list):
+    """
+    add <li> for html
+    """
+    movies_list_html = []
+
+    for movie in movie_names_list:
+        movies_list_html.append("<li>" + movie + "</li>")
+
+    return movies_list_html
+
+
+def find_video_file(movies_path):
+    
+
 
 
 @app.route("/")
