@@ -42,3 +42,9 @@ def test_create_movie_path_list():
     eq_(create_movie_path_list("./testumgebung/movies/"),
         ["./testumgebung/movies/Movie 1 (2009)/",
         "./testumgebung/movies/Movie 2 (2011)/"])
+
+
+def test_html_download_link():
+    eq_(html_download_link("./testumgebung/movies/"),
+        ['<a href="./testumgebung/movies/Movie 1 (2009)/M1.mkv">Download</a>',
+        '<a href="./testumgebung/movies/Movie 2 (2011)/M2.mkv">Download</a>'])

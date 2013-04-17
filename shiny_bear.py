@@ -60,12 +60,18 @@ def create_movie_path_list(movies_path):
     return movie_path_list
 
 
-def create_video_file_list(movies_path_list):
+def create_video_file_list(movies_path):
     video_file_list = []
-    for movie in create_movie_path_list(movies_path_list):
+    for movie in create_movie_path_list(movies_path):
         video_file_list.append(create_path_to_video_file(movie))
     return video_file_list
 
+
+def html_download_link(movies_path):
+    html_download_link_list = []
+    for link in create_video_file_list(movies_path):
+        html_download_link_list.append('<a href="' + link + '">Download</a>')
+    return html_download_link_list
 
 @app.route("/")
 def index():
