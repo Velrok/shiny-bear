@@ -43,8 +43,11 @@ def movies_html(movie_names_list):
     return movies_list_html
 
 
-def find_video_file(movies_path):
-    
+def find_video_file(movie_path_for_single_movie):
+    for file_item in os.listdir(movie_path_for_single_movie):
+        if ".mkv" in file_item:
+            return file_item
+
 
 
 
