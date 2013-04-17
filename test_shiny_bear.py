@@ -2,7 +2,7 @@ from nose.tools import *
 from shiny_bear import *
 
 
-def test_remove_year_removes_the_year():
+def test_remove_year():
     eq_(remove_year("Movie Name (2012)"),
         "Movie Name")
 
@@ -25,4 +25,8 @@ def test_movies_html():
 def test_find_video_file():
     eq_(find_video_file("./testumgebung/movies/Movie 1 (2009)/"),
         "M1.mkv")
-    
+
+
+def test_create_path_to_video_file():
+    eq_(create_path_to_video_file("./testumgebung/movies/Movie 1 (2009)/"),
+        "./testumgebung/movies/Movie 1 (2009)/M1.mkv")

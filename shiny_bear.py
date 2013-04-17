@@ -49,6 +49,10 @@ def find_video_file(movie_path_for_single_movie):
             return file_item
 
 
+def create_path_to_video_file(movie_path_for_single_movie):
+    return movie_path_for_single_movie + find_video_file(movie_path_for_single_movie)
+
+
 
 
 @app.route("/")
