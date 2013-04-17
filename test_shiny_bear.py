@@ -35,7 +35,7 @@ def test_create_path_to_video_file():
 def test_create_video_file_list():
     eq_(create_video_file_list("./testumgebung/movies/"),
         ["./testumgebung/movies/Movie 1 (2009)/M1.mkv",
-        "./testumgebung/movies/Movie 2 (2011)/M2.mkv"])
+        "./testumgebung/movies/Movie 2 (2011)/M2.avi"])
 
 
 def test_create_movie_path_list():
@@ -47,4 +47,8 @@ def test_create_movie_path_list():
 def test_html_download_link():
     eq_(html_download_link("./testumgebung/movies/"),
         ['<a href="./testumgebung/movies/Movie 1 (2009)/M1.mkv">Download</a>',
-        '<a href="./testumgebung/movies/Movie 2 (2011)/M2.mkv">Download</a>'])
+        '<a href="./testumgebung/movies/Movie 2 (2011)/M2.avi">Download</a>'])
+
+
+# def test_combine_movie_names_and_dl_list():
+#     eq_()
