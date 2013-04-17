@@ -30,3 +30,15 @@ def test_find_video_file():
 def test_create_path_to_video_file():
     eq_(create_path_to_video_file("./testumgebung/movies/Movie 1 (2009)/"),
         "./testumgebung/movies/Movie 1 (2009)/M1.mkv")
+
+
+def test_create_video_file_list():
+    eq_(create_video_file_list("./testumgebung/movies/"),
+        ["./testumgebung/movies/Movie 1 (2009)/M1.mkv",
+        "./testumgebung/movies/Movie 2 (2011)/M2.mkv"])
+
+
+def test_create_movie_path_list():
+    eq_(create_movie_path_list("./testumgebung/movies/"),
+        ["./testumgebung/movies/Movie 1 (2009)/",
+        "./testumgebung/movies/Movie 2 (2011)/"])

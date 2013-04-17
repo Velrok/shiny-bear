@@ -53,6 +53,18 @@ def create_path_to_video_file(movie_path_for_single_movie):
     return movie_path_for_single_movie + find_video_file(movie_path_for_single_movie)
 
 
+def create_movie_path_list(movies_path):
+    movie_path_list = []
+    for movie in movie_names_list(movies_path):
+        movie_path_list.append(movies_path + movie + "/")
+    return movie_path_list
+
+
+def create_video_file_list(movies_path_list):
+    video_file_list = []
+    for movie in create_movie_path_list(movies_path_list):
+        video_file_list.append(create_path_to_video_file(movie))
+    return video_file_list
 
 
 @app.route("/")
