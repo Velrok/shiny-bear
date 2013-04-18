@@ -22,16 +22,15 @@ class Counter(object):
     """
     instances = {}
 
-    def __new__(cls, db, name):
+    def __new__(cls, collection, name):
         """Ensures identity based on names."""
         if not name in cls.instances:
-            cls.instances[name] = object.__new__(cls, db, name)
+            cls.instances[name] = object.__new__(cls, collection, name)
         return cls.instances[name]
 
-    def __init__(self, db, name):
+    def __init__(self, collection, name):
         super(Counter, self).__init__()
-        self.db = db
-        self.collection = db.counters
+        self.collection = collection
         self.name = name
 
         found = self.collection.find_one(self.__query())
