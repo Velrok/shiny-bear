@@ -19,6 +19,20 @@ def drop_counters_collection():
     collection().drop()
 
 
+# ------------------------
+# plain functions tests
+# ------------------------
+
+def test_set():
+    eq_(collection().count(), 0)
+    set_counter(collection(), "test")
+    eq_(collection().count(), 1)
+
+
+# ------------------------
+# class Counter tests
+# ------------------------
+
 @with_setup(drop_counters_collection)
 def test_counters_inits_with_0():
     c = Counter(collection(), "test")

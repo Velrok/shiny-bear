@@ -6,6 +6,31 @@
 # import pymongo
 
 
+def __query(name):
+    return {'name': name}
+
+
+def inc_counter(collection, name):
+    pass
+
+
+def set_counter(collection, name, value):
+    if collection.find(__query(name)).count() == 0:
+        # its a new counter
+        collection.insert(
+            {'name': name,
+             'counter': 0})
+    else:
+        # its already present -> update
+        collection.update(
+            __query(name),
+            {"$set": {'counter': value}})
+
+
+def get_counter(collection, name):
+    pass
+
+
 class Counter(object):
     """A mongo db backed counter.
 
@@ -66,7 +91,7 @@ class Counter(object):
         return self
 
     def __query(self):
-        return {'name': self.name}
+        return __query(self.name)
 
     def __store_new_counter_value(self, value):
         if self.collection.find(self.__query()).count() == 0:
