@@ -16,6 +16,18 @@ class Movie(object):
         # only works for UNIX systems, Windows uses \ as a path seperator
         return self.path.split("/")[-1]
 
+    def get_video_file(self):
+        # look for videofile (mkv, avi, ...) in movie folder
+        def fn(file_name):
+            file_ext = [".mkv", ".avi"]
+            for i in file_ext:
+                if i in file_name:
+                    return True
+            return False
+
+        return os.path.join(self.path,
+                            filter(fn, os.listdir(self.path))[0])
+
 
 def li_decorator(string):
     return decorate("li", string)
